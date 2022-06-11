@@ -78,7 +78,7 @@ class ChatPage extends StatelessWidget {
           'Message Support',
           style: primaryTextStyle.copyWith(
             fontSize: 18,
-            fontWeight: medium,
+            fontWeight: semiBold,
           ),
         ),
         elevation: 0,
