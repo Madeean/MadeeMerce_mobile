@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_client/theme.dart';
 
-class ProductCard extends StatelessWidget {
-  const ProductCard({Key? key}) : super(key: key);
+class ProductTile extends StatelessWidget {
+  const ProductTile({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,36 +11,31 @@ class ProductCard extends StatelessWidget {
         Navigator.pushNamed(context, '/product');
       },
       child: Container(
-        width: 215,
-        height: 278,
         margin: EdgeInsets.only(
+          left: defaultMargin,
           right: defaultMargin,
+          bottom: defaultMargin,
         ),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
-          color: Color(0xffECEDEF),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: Row(
           children: [
-            SizedBox(
-              height: 30,
-            ),
-            Image.asset(
-              'assets/image_shoes.png',
-              width: 215,
-              height: 150,
-              fit: BoxFit.cover,
-            ),
-            Container(
-              margin: EdgeInsets.symmetric(
-                horizontal: 20,
+            ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: Image.asset(
+                'assets/image_shoes.png',
+                width: 120,
+                height: 120,
+                fit: BoxFit.cover,
               ),
+            ),
+            SizedBox(
+              width: 12,
+            ),
+            Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Hiking',
+                    'Football',
                     style: secondaryTextStyle.copyWith(
                       fontSize: 12,
                     ),
@@ -49,26 +44,24 @@ class ProductCard extends StatelessWidget {
                     height: 6,
                   ),
                   Text(
-                    'Court Vision 2.0',
-                    style: blackTextStyle.copyWith(
-                      fontSize: 18,
+                    'Predator 20.3 bla bla bla',
+                    style: primaryTextStyle.copyWith(
+                      fontSize: 16,
                       fontWeight: semiBold,
                     ),
-                    overflow: TextOverflow.ellipsis,
                   ),
                   SizedBox(
                     height: 6,
                   ),
                   Text(
-                    '\$10',
+                    '\$60',
                     style: priceTextStyle.copyWith(
-                      fontSize: 14,
                       fontWeight: medium,
                     ),
-                  )
+                  ),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),

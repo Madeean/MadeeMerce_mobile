@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_client/theme.dart';
 import 'package:flutter_client/widgets/product_card.dart';
-import 'package:flutter_client/widgets/profuct_tile.dart';
+import 'package:flutter_client/widgets/product_tile.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
