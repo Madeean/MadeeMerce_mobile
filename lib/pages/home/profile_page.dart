@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_client/models/user_model.dart';
+import 'package:flutter_client/providers/auth_provider.dart';
 import 'package:flutter_client/theme.dart';
+import 'package:provider/provider.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    AuthProvider authProvider = Provider.of<AuthProvider>(context);
+    UserModel user = authProvider.user;
     Widget header() {
       return AppBar(
         backgroundColor: backgroundColor1,
@@ -17,8 +22,8 @@ class ProfilePage extends StatelessWidget {
             child: Row(
               children: [
                 ClipOval(
-                  child: Image.asset(
-                    'assets/image_profile.png',
+                  child: Image.network(
+                    '${user.profilePhotoUrl}',
                     width: 64,
                   ),
                 ),
@@ -30,14 +35,14 @@ class ProfilePage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Hallo, Madee',
+                        'Hallo, ${user.name}',
                         style: primaryTextStyle.copyWith(
                           fontSize: 24,
                           fontWeight: semiBold,
                         ),
                       ),
                       Text(
-                        '@MadeePedia',
+                        '@${user.username}',
                         style: subtitleTextStyle.copyWith(fontSize: 16),
                       ),
                     ],

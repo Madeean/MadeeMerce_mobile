@@ -22,6 +22,8 @@ class UserModel {
     username = json['username'];
     profilePhotoUrl = json['profile_photo_url'];
     token = json['token'];
+
+    print("photo ${profilePhotoUrl}");
   }
 
   Map<String, dynamic> toJson() {
