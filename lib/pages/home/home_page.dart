@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_client/models/user_model.dart';
 import 'package:flutter_client/providers/auth_provider.dart';
+import 'package:flutter_client/providers/product_provider.dart';
 import 'package:flutter_client/theme.dart';
 import 'package:flutter_client/widgets/product_card.dart';
 import 'package:flutter_client/widgets/product_tile.dart';
@@ -13,7 +14,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     AuthProvider authProvider = Provider.of<AuthProvider>(context);
     UserModel user = authProvider.user;
-    print("user: ${user.profilePhotoUrl}");
+    ProductProvider productProvider = Provider.of<ProductProvider>(context);
 
     Widget header() {
       return Container(
@@ -211,11 +212,14 @@ class HomePage extends StatelessWidget {
                 width: defaultMargin,
               ),
               Row(
-                children: [
-                  ProductCard(),
-                  ProductCard(),
-                  ProductCard(),
-                ],
+                children: productProvider.products
+                    .map((product) => ProductCard(product))
+                    .toList(),
+                // ANCHOR -  [
+                //   ProductCard(),
+                //   ProductCard(),
+                //   ProductCard(),
+                // ]
               ),
             ],
           ),
@@ -246,12 +250,15 @@ class HomePage extends StatelessWidget {
           top: 14,
         ),
         child: Column(
-          children: [
-            ProductTile(),
-            ProductTile(),
-            ProductTile(),
-            ProductTile(),
-          ],
+          children: productProvider.products
+              .map((product) => ProductTile(product))
+              .toList(),
+          // ANCHOR - [
+          //   ProductTile(),
+          //   ProductTile(),
+          //   ProductTile(),
+          //   ProductTile(),
+          // ]
         ),
       );
     }

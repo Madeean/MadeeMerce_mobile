@@ -1,14 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_client/models/message_mode.dart';
+import 'package:flutter_client/models/product_model.dart';
+import 'package:flutter_client/pages/detail_chat_page.dart';
 import 'package:flutter_client/theme.dart';
 
 class ChatTile extends StatelessWidget {
-  const ChatTile({Key? key}) : super(key: key);
+  final MessageModel message;
+  ChatTile(this.message);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, '/detail-chat');
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => DetailChatPage(
+              UninitializedProductModel(),
+            ),
+          ),
+        );
       },
       child: Container(
         margin: EdgeInsets.only(
@@ -36,7 +47,7 @@ class ChatTile extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        'Good Night This item is on...',
+                        '${message.message}',
                         style: secondaryTextStyle.copyWith(
                           fontSize: 14,
                           fontWeight: light,

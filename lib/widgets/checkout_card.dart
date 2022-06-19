@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_client/models/cart_model.dart';
 import 'package:flutter_client/theme.dart';
 
 class CheckoutCard extends StatelessWidget {
-  const CheckoutCard({Key? key}) : super(key: key);
+  late final CartModel cart;
+  CheckoutCard(this.cart);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +23,7 @@ class CheckoutCard extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
               image: DecorationImage(
-                image: AssetImage('assets/image_shoes.png'),
+                image: NetworkImage(cart.product.galleries![0].url),
               ),
             ),
           ),
@@ -33,7 +35,7 @@ class CheckoutCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'terrex urban low',
+                  cart.product.name.toString(),
                   style: primaryTextStyle.copyWith(
                     fontSize: 14,
                     fontWeight: semiBold,
@@ -44,7 +46,7 @@ class CheckoutCard extends StatelessWidget {
                   height: 2,
                 ),
                 Text(
-                  '\$143,34',
+                  '\$${cart.product.price}',
                   style: priceTextStyle,
                 ),
               ],
@@ -54,7 +56,7 @@ class CheckoutCard extends StatelessWidget {
             width: 12,
           ),
           Text(
-            '2 items',
+            '${cart.quantity} items',
             style: secondaryTextStyle.copyWith(fontSize: 12),
           ),
         ],

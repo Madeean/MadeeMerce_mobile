@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "22343015452",
+    "project_id": "madeemercemobile",
+    "storage_bucket": "madeemercemobile.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:22343015452:android:c12a45e28767c4397853d9",
+        "android_client_info": {
+          "package_name": "com.madee.flutter_client"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "22343015452-s0s8staogekujijf95dsmhkifspcg6fp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVP0my8GjiqWopDRJSup6C87xf91reY40"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "22343015452-s0s8staogekujijf95dsmhkifspcg6fp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
